@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Video Nền</title>
+    <style>
+        /* Làm cho video phủ kín màn hình */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Đảm bảo video phủ hết nền */
+            z-index: -1; /* Đặt video phía sau menu */
+        }
+
+        .menu {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.5); /* Nền mờ */
+            padding: 30px 50px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .menu a {
+            display: block;
+            margin: 15px 0;
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Video nền -->
+    <video autoplay muted loop class="background-video">
+        <source src="your-video.mp4" type="video/mp4">
+        Trình duyệt của bạn không hỗ trợ video.
+    </video>
+
+    <!-- Menu chính -->
+    <div class="menu">
+        <a href="#">Trang chủ</a>
+        <a href="#">Giới thiệu</a>
+        <a href="#">Dịch vụ</a>
+        <a href="#">Liên hệ</a>
+    </div>
+
+</body>
+</html>
