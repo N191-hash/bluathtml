@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tâm Súng FF Overlay</title>
+  <title>Tâm Súng Tùy Chỉnh - Bật/Tắt</title>
   <style>
     html, body {
       margin: 0;
@@ -13,24 +13,62 @@
 
     #crosshair {
       position: fixed;
-      top: 53.5%;   /* điều chỉnh vị trí dọc */
-      left: 51.2%;  /* điều chỉnh vị trí ngang */
+      top: 53.5%;
+      left: 51.2%;
       transform: translate(-50%, -50%);
       z-index: 9999;
       pointer-events: none;
+      display: block;
     }
 
     #crosshair img {
-      width: 65px; /* bạn có thể chỉnh lại */
+      width: 65px;
       opacity: 0.95;
+    }
+
+    #toggleBtn {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 10000;
+      background-color: rgba(0,0,0,0.7);
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #toggleBtn:hover {
+      background-color: rgba(255,255,255,0.2);
     }
   </style>
 </head>
 <body>
 
+  <!-- Tâm súng -->
   <div id="crosshair">
     <img src="IMG_2416.png" alt="Tâm súng tùy chỉnh">
   </div>
+
+  <!-- Nút bật/tắt -->
+  <button id="toggleBtn">Tắt tâm</button>
+
+  <script>
+    const crosshair = document.getElementById('crosshair');
+    const toggleBtn = document.getElementById('toggleBtn');
+
+    toggleBtn.onclick = function() {
+      if (crosshair.style.display === 'none') {
+        crosshair.style.display = 'block';
+        toggleBtn.textContent = 'Tắt tâm';
+      } else {
+        crosshair.style.display = 'none';
+        toggleBtn.textContent = 'Bật tâm';
+      }
+    }
+  </script>
 
 </body>
 </html>
