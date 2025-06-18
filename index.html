@@ -1,70 +1,36 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Video Nền</title>
-    <style>
-        /* Làm cho video phủ kín màn hình */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <title>Tâm Súng FF Overlay</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      overflow: hidden;
+    }
 
-        .background-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Đảm bảo video phủ hết nền */
-            z-index: -1; /* Đặt video phía sau menu */
-        }
+    #crosshair {
+      position: fixed;
+      top: 53.5%;   /* điều chỉnh vị trí dọc */
+      left: 51.2%;  /* điều chỉnh vị trí ngang */
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      pointer-events: none;
+    }
 
-        .menu {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.5); /* Nền mờ */
-            padding: 30px 50px;
-            border-radius: 10px;
-            text-align: center;
-            color: white;
-        }
-
-        .menu a {
-            display: block;
-            margin: 15px 0;
-            text-decoration: none;
-            color: white;
-            font-size: 20px;
-            transition: color 0.3s;
-        }
-
-        .menu a:hover {
-            color: #ffcc00;
-        }
-    </style>
+    #crosshair img {
+      width: 65px; /* bạn có thể chỉnh lại */
+      opacity: 0.95;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Video nền -->
-    <video autoplay muted loop class="background-video">
-        <source src="snaptik_7485305934592462098.mp4" type="video/mp4">
-        Trình duyệt của bạn không hỗ trợ video.
-    </video>
-
-    <!-- Menu chính -->
-    <div class="menu">
-        <a href="#">Trang chủ</a>
-        <a href="#">Giới thiệu</a>
-        <a href="#">Dịch vụ</a>
-        <a href="#">Liên hệ</a>
-    </div>
+  <div id="crosshair">
+    <img src="IMG_2413.jpeg" alt="Tâm súng tùy chỉnh">
+  </div>
 
 </body>
 </html>
