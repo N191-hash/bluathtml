@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Baluat Tweaks Universe</title>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@900&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -20,30 +20,31 @@
       flex-direction: column;
       align-items: center;
       position: relative;
-      padding-top: 50px;
+      padding-top: 60px;
     }
 
     h1 {
-      font-size: 42px;
+      font-size: 48px;
       font-weight: 900;
       text-align: center;
       background: linear-gradient(90deg, #ff66cc, #ff3399, #cc00cc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 10px rgba(255, 0, 150, 0.5);
-      margin-bottom: 40px;
+      text-shadow: 0 0 15px rgba(255, 0, 150, 0.5);
+      margin-bottom: 60px;
       animation: glow 2s ease-in-out infinite alternate;
+      max-width: 90%;
     }
 
     @keyframes glow {
       from { text-shadow: 0 0 10px rgba(255, 0, 150, 0.4); }
-      to { text-shadow: 0 0 20px rgba(255, 0, 180, 0.9); }
+      to { text-shadow: 0 0 25px rgba(255, 0, 180, 0.9); }
     }
 
     .menu {
       display: flex;
       flex-direction: column;
-      gap: 25px;
+      gap: 35px;
       align-items: center;
       z-index: 2;
       width: 100%;
@@ -59,29 +60,29 @@
     .button {
       background: linear-gradient(135deg, #ff66b2, #ff3399);
       color: white;
-      padding: 20px 40px;
+      padding: 24px 40px;
       border: none;
-      border-radius: 15px;
-      font-size: 28px;
-      font-weight: 800;
+      border-radius: 18px;
+      font-size: 32px;
+      font-weight: 900;
       cursor: pointer;
-      width: 90vw;
-      max-width: 500px;
+      width: 92vw;
+      max-width: 600px;
       text-align: center;
       transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
-      box-shadow: 0 6px 12px rgba(255, 105, 180, 0.3);
+      box-shadow: 0 8px 14px rgba(255, 105, 180, 0.3);
     }
 
     .button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 20px rgba(255, 105, 180, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 14px 24px rgba(255, 105, 180, 0.5);
       background: linear-gradient(135deg, #ff3385, #ff1a75);
     }
 
     .message {
       color: #33cc33;
-      font-size: 18px;
-      margin-top: 8px;
+      font-size: 20px;
+      margin-top: 10px;
       display: none;
       text-align: center;
     }
@@ -111,7 +112,6 @@
       z-index: 4;
     }
 
-    /* Hoa rơi */
     .petal {
       position: absolute;
       top: -50px;
@@ -183,7 +183,6 @@
       }, 3000);
     }
 
-    // Tạo hoa rơi
     for (let i = 0; i < 50; i++) {
       const petal = document.createElement('div');
       petal.className = 'petal';
