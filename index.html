@@ -2,7 +2,8 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Trang hiệu ứng FF</title>
+  <title>Baluat Tweaks Universe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@800&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -12,38 +13,77 @@
 
     body {
       background-color: #ffe6f0;
-      font-family: Arial, sans-serif;
-      height: 100vh;
+      font-family: 'Be Vietnam Pro', sans-serif;
+      min-height: 100vh;
       overflow: hidden;
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
+      align-items: center;
       position: relative;
+      padding-top: 50px;
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: 900;
+      text-align: center;
+      background: linear-gradient(90deg, #ff66cc, #ff3399, #cc00cc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(255, 0, 150, 0.5);
+      margin-bottom: 40px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px rgba(255, 0, 150, 0.4); }
+      to { text-shadow: 0 0 20px rgba(255, 0, 180, 0.9); }
     }
 
     .menu {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 25px;
+      align-items: center;
       z-index: 2;
+      width: 100%;
+    }
+
+    .menu div {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .button {
-      background-color: #ff99cc;
+      background: linear-gradient(135deg, #ff66b2, #ff3399);
       color: white;
-      padding: 15px 30px;
+      padding: 20px 40px;
       border: none;
-      border-radius: 10px;
-      font-size:75px;
-      font-weight: bold;
+      border-radius: 15px;
+      font-size: 28px;
+      font-weight: 800;
       cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
+      width: 90vw;
+      max-width: 500px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
+      box-shadow: 0 6px 12px rgba(255, 105, 180, 0.3);
     }
 
     .button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px #ff66b2;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 20px rgba(255, 105, 180, 0.5);
+      background: linear-gradient(135deg, #ff3385, #ff1a75);
+    }
+
+    .message {
+      color: #33cc33;
+      font-size: 18px;
+      margin-top: 8px;
+      display: none;
+      text-align: center;
     }
 
     #crosshair {
@@ -71,12 +111,12 @@
       z-index: 4;
     }
 
-    /* Hoa anh đào */
+    /* Hoa rơi */
     .petal {
       position: absolute;
       top: -50px;
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       background: pink;
       border-radius: 50%;
       opacity: 0.8;
@@ -84,71 +124,74 @@
     }
 
     @keyframes fall {
-      0% {
-        transform: translateY(0) rotate(0deg);
-      }
-      100% {
-        transform: translateY(110vh) rotate(360deg);
-      }
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
     }
   </style>
 </head>
 <body>
 
+  <h1>Baluat Tweaks Universe</h1>
+
   <div class="menu">
-    <button class="button">SHOTBOT FAKE</button>
-    <button class="button">AIMLOCK FAKE</button>
-    <button class="button">CHA BÁ LUẬT NÈ</button>
-    <button class="button" onclick="toggleCrosshair()">BẬT TÂM ẢO</button>
+    <div>
+      <button class="button" onclick="showMessage(this, 'SHOTBOT FAKE')">SHOTBOT FAKE</button>
+      <div class="message"></div>
+    </div>
+    <div>
+      <button class="button" onclick="showMessage(this, 'AIMLOCK FAKE')">AIMLOCK FAKE</button>
+      <div class="message"></div>
+    </div>
+    <div>
+      <button class="button" onclick="showMessage(this, 'CHA BÁ LUẬT NÈ')">CHA BÁ LUẬT NÈ</button>
+      <div class="message"></div>
+    </div>
+    <div>
+      <button class="button" onclick="toggleCrosshair(this)">BẬT TÂM ẢO</button>
+      <div class="message"></div>
+    </div>
   </div>
 
   <div class="overlay" id="overlay"></div>
   <img src="IMG_2416.png" id="crosshair" alt="Tâm ảo">
 
   <script>
-    function toggleCrosshair() {
+    function showMessage(button, name) {
+      const messageDiv = button.nextElementSibling;
+      messageDiv.innerHTML = `✅ ${name} đã được kích hoạt!`;
+      messageDiv.style.display = "block";
+      setTimeout(() => {
+        messageDiv.style.display = "none";
+      }, 3000);
+    }
+
+    function toggleCrosshair(button) {
       const crosshair = document.getElementById("crosshair");
       const overlay = document.getElementById("overlay");
       const isVisible = crosshair.style.display === "block";
       crosshair.style.display = isVisible ? "none" : "block";
       overlay.style.display = isVisible ? "none" : "block";
+
+      const messageDiv = button.nextElementSibling;
+      messageDiv.innerHTML = isVisible 
+        ? "❌ Tâm ảo đã tắt"
+        : "✅ Tâm ảo đã được bật!";
+      messageDiv.style.display = "block";
+
+      setTimeout(() => {
+        messageDiv.style.display = "none";
+      }, 3000);
     }
 
-    // Tạo hoa anh đào rơi
+    // Tạo hoa rơi
     for (let i = 0; i < 50; i++) {
       const petal = document.createElement('div');
       petal.className = 'petal';
       petal.style.left = Math.random() * 100 + "vw";
-      petal.style.animationDuration = 5 + Math.random() * 5 + "s";
+      petal.style.animationDuration = 6 + Math.random() * 5 + "s";
       petal.style.opacity = 0.5 + Math.random() * 0.5;
       petal.style.background = "rgba(255,182,193,0.9)";
       document.body.appendChild(petal);
-    }
-  </script>
-
-</body>
-</html>
-
-  <!-- Tâm súng -->
-  <div id="crosshair">
-    <img src="IMG_2416.png" alt="Tâm súng tùy chỉnh">
-  </div>
-
-  <!-- Nút bật/tắt -->
-  <button id="toggleBtn">Tắt tâm</button>
-
-  <script>
-    const crosshair = document.getElementById('crosshair');
-    const toggleBtn = document.getElementById('toggleBtn');
-
-    toggleBtn.onclick = function() {
-      if (crosshair.style.display === 'none') {
-        crosshair.style.display = 'block';
-        toggleBtn.textContent = 'TẮT TÂM ẢO';
-      } else {
-        crosshair.style.display = 'none';
-        toggleBtn.textContent = 'UNLOCK TÂM ẢO';
-      }
     }
   </script>
 
